@@ -1,30 +1,17 @@
-exports.gameStructure = { 
-    type: 'object',
-    required: ["title", "producer", "description", "details"],
-    properties: {
-        title: {
-            type: "string"
-        },
-        producer: {
-            type: "array",
-            items: { type: "string" }
-        },
-        description: {
-            type: "string"
-        },
-        details: {
-            type: "object",
-            required: ["country", "language"],
-            properties:{
-                country: {
-                    type: "string",
-                },
-                language: {
-                    type: "array",
-                    items:{ type:"string"}
-                }
-            }
-        }
-    }
-}
+const mongoose = require('mongoose');
 
+const GameSchema = new mongoose.Schema({
+  gameName: {
+    type: String,
+    required: true
+  },
+  gameDetail: {
+    type: String,
+    required: true
+  },
+  
+});
+
+const Game = mongoose.model('Game', GameSchema);
+
+module.exports = Game;

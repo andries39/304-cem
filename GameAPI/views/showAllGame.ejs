@@ -1,0 +1,71 @@
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/createGame">createGame</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/showAllGame">showAllGame</a>
+          </li>
+          <li class="nav-item">
+              <a href="/users/logout" class="nav-link">Logout</a>
+          </li>
+        </ul>
+        
+      </div>
+    </nav>
+
+
+<h1 class="mt-4">Game</h1>
+<p class="lead mb-3">Welcome <%= user.name %></p>
+<form action="/deleteGame" method="post">
+    <div class="input">
+        <label for="gameName">name</label>
+        <input type="text" id="gameName" name="gameName">
+    </div>
+    <button type="submit">DELETE</button>
+</form>
+
+<table class="table table-hover">
+       
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Column heading</th>
+        <th scope="col">Column heading123</th>
+      </tr>
+    </thead>
+   
+    <tbody>
+            <% practices.forEach(function (practice) { %>
+    
+                
+            
+            <tr class="table-danger">
+                <td> <%= practice.gameName %></td>
+                <td><%= practice.gameDetail %></td>
+                <td><%= practice._id %></td>
+                <td><form action="/updateGame">
+                    <input type="hidden" id="gameName123" name="gameName123"  value=<%= practice.gameName %>>
+                    <input type="submit" value="Go to Google" />
+                </form></td>
+            </tr>
+            <% }) %>
+    </tbody>
+</table> 
+
+
+
+
+
+
+
