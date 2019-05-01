@@ -66,11 +66,21 @@ app.get('/showAllGame', ensureAuthenticated, function(req, res) {
       // note that data is an array of objects, not a single object!
       res.render('showAllGame.ejs', {
           user : req.user,
-          practices: data
+          games: data
           
       });
       
   });
+});
+
+app.post('/updateGame', ensureAuthenticated, function(req, res) {
+  // Process the data received in req.body
+  res.render('updateGame', {
+    user: req.user,
+    gameName123: req.param('gameName123'),
+    ok:"ok123"
+  })
+  res.redirect('/updateGame');
 });
 //
 

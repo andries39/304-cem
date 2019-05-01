@@ -9,6 +9,23 @@ const GameSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  gameProducer: {
+    type: String,
+    required: true
+  },
+  company: {
+    type: String,
+    required: true
+  },
+  ignScore: {
+    type: Number,
+    required: true
+  },
+  userID: {
+    type: String,
+    required: true
+  },
+
   
 });
 

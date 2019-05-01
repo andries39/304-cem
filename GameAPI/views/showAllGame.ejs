@@ -39,23 +39,29 @@
        
     <thead>
       <tr>
-        <th scope="col">Type</th>
-        <th scope="col">Column heading</th>
-        <th scope="col">Column heading123</th>
+        <th scope="col">gameName</th>
+        <th scope="col">gameDetail</th>
+        <th scope="col">gameProducer</th>
+        <th scope="col">company</th>
+        <th scope="col">ignScore</th>
+        <th scope="col">userID</th>
       </tr>
     </thead>
    
     <tbody>
-            <% practices.forEach(function (practice) { %>
+            <% games.forEach(function (game) { %>
     
                 
             
             <tr class="table-danger">
-                <td> <%= practice.gameName %></td>
-                <td><%= practice.gameDetail %></td>
-                <td><%= practice._id %></td>
-                <td><form action="/updateGame">
-                    <input type="hidden" id="gameName123" name="gameName123"  value=<%= practice.gameName %>>
+                <td> <%= game.gameName %></td>
+                <td><%= game.gameDetail %></td>
+                <td><%= game.gameProducer %></td>
+                <td><%= game.company %></td>
+                <td><%= game.ignScore %></td>
+                <td><%= game.userID %></td>
+                <td><form action="/updateGame" method="POST">
+                    <input type="hidden" id="gameName123" name="gameName123"  value=<%= game.gameName %>>
                     <input type="submit" value="Go to Google" />
                 </form></td>
             </tr>

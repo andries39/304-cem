@@ -19,13 +19,13 @@ router.get('/createGame', ensureAuthenticated, (req, res) =>
   })
 );
 
-router.get('/updateGame', ensureAuthenticated, (req, res) =>
+/*router.get('/updateGame', ensureAuthenticated, (req, res) =>
   res.render('updateGame', {
     user: req.user,
     gameName123: req.param('gameName123'),
     ok:"ok123"
   })
-);
+);*/
 
 
 
@@ -34,7 +34,11 @@ router.post("/createGame", (req, res) => {
   const game = new Game({
       
       gameName: req.body.gameName,
-      gameDetail:req.body.gameDetail
+      gameDetail:req.body.gameDetail,
+      gameProducer:req.body.gameProducer,
+      company:req.body.company,
+      ignScore:req.body.ignScore,
+      userID:req.body.userID
       
   });
 
@@ -67,7 +71,6 @@ router.post("/deleteGame", (req, res, next) => {
       });
       res.redirect('/showAllGame');
 });
-
 
 
 
