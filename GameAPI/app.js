@@ -59,32 +59,7 @@ app.use(function(req, res, next) {
 app.use('/', require('./routes/index.js'));
 app.use('/users', require('./routes/users.js'));
 
-// mogo
-app.get('/showAllGame', ensureAuthenticated, function(req, res) {
-  // mongoose operations are asynchronous, so you need to wait 
-  const uID = req.user._id;
-  console.log("uID:"+uID);
-  Game.find({userID:uID}, function(err, data) {
-      // note that data is an array of objects, not a single object!
-      res.render('showAllGame.ejs', {
-          user : req.user,
-          games: data
-          
-      });
-      
-  });
-});
 
-app.post('/updateGame', ensureAuthenticated, function(req, res) {
-  // Process the data received in req.body
-  res.render('updateGame', {
-    user: req.user,
-    gameName123: req.param('gameName123'),
-    ok:"ok123"
-  })
-  res.redirect('/updateGame');
-});
-//
 
 const PORT = process.env.PORT || 5000;
 

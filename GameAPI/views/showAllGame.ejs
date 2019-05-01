@@ -55,8 +55,15 @@
                 <td><%= game.ignScore %></td>
                 <td><%= game.userID %></td>
                 <td><form action="/updateGame" method="POST">
-                    <input type="hidden" id="gameName123" name="gameName123"  value=<%= game.gameName %>>
-                    <input type="submit" value="Go to Google" />
+                    
+                    <input type="hidden" id="gameName" name="gameName"  value=<%= game.gameName %>>
+                    <input type="hidden" id="gameDetail" name="gameDetail"  value=<%= game.gameDetail %>>
+                    <input type="hidden" id="gameProducer" name="gameProducer"  value=<%= game.gameProducer %>>
+                    <input type="hidden" id="company" name="company"  value=<%= game.company %>>
+                    <input type="hidden" id="ignScore" name="ignScore"  value=<%= game.ignScore %>>
+                    <input type="hidden" id="userID" name="userID"  value=<%= game.userID %>>
+                    <input type="hidden" id="gameuID" name="gameuID"  value=<%= game._id %>>
+                    <input type="submit" value="update" />
                 </form></td>
                 <td><form action="/deleteGame" method="POST">
                   <input type="hidden" id="gameID" name="gameID"  value=<%= game._id %>>
