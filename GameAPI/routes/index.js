@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 const Game = require('../models/Game');
+const Favorite = require('../models/Favorite');
 
 // Welcome Page
 router.get('/', forwardAuthenticated, (req, res) => res.render('welcome'));
@@ -134,6 +135,66 @@ res.send(err);
 });
 
 
+router.post("/addToFavorite", (req, res) => {
+  let errors = [];
+  errors.push({ msg: 'Email already exists' });
+  const favorite = new Favorite({
+      
+      gameName: req.body.gameName,
+      gameDetail:req.body.gameDetail,
+      gameProducer:req.body.gameProducer,
+      company:req.body.company,
+      ignScore:req.body.ignScore,
+      userID:req.body.userID,
+      userEvaluation:req.body.userEvaluation,
+      userScore:req.body.userScore
+      
+  });
+  Favorite.findOne({ gameName: req.body.gameName }).then(game => {
+    if (game) {
+      console.log("already added");
+      res.redirect('/createGame');
+    }else{
+      favorite.save()
+      
+  .catch(err => {
+      console.log(err);
+  });
+  res.redirect('/showFavoriteGame');
+    }
+  });
+  
+});
+
+router.get('/showFavoriteGame', ensureAuthenticated, function(req, res) {
+  // mongoose operations are asynchronous, so you need to wait 
+  const uID = req.user._id;
+  console.log("uID:"+uID);
+  Favorite.find({userID:uID}, function(err, data) {
+      // note that data is an array of objects, not a single object!
+      res.render('showFavoriteGame.ejs', {
+          user : req.user,
+          games: data
+          
+      });
+      
+  });
+});
+
+router.post("/deleteFavorite", (req, res, next) => {
+  const rid = req.body.gameID;
+  
+  Favorite.findById(rid)
+      .exec()
+      .then(docs => {
+          docs.remove();
+          
+      })
+      .catch(err => {
+          console.log(err)
+      });
+      res.redirect('/showFavoriteGame');
+});
 
 
 

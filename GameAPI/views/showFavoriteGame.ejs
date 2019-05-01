@@ -42,10 +42,11 @@
         <th scope="col">gameProducer</th>
         <th scope="col">company</th>
         <th scope="col">ignScore</th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-        <th scope="col"></th>
         
+        <th scope="col">userEvaluation</th>
+        <th scope="col">userScore</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
    
@@ -61,7 +62,10 @@
                 <td><%= game.company %></td>
                 <td><%= game.ignScore %></td>
                 
-                <td><form action="/updateGame" method="POST">
+                <td><%= game.userEvaluation %></td>
+                <td><%= game.userScore %></td>
+                
+                <td><form action="" method="POST">
                     
                     <input type="hidden" id="gameName" name="gameName"  value=<%= game.gameName %>>
                     <input type="hidden" id="gameDetail" name="gameDetail"  value=<%= game.gameDetail %>>
@@ -69,26 +73,17 @@
                     <input type="hidden" id="company" name="company"  value=<%= game.company %>>
                     <input type="hidden" id="ignScore" name="ignScore"  value=<%= game.ignScore %>>
                     <input type="hidden" id="userID" name="userID"  value=<%= game.userID %>>
+                    <input type="hidden" id="userEvaluation" name="userEvaluation"  value=<%= game.userEvaluation %>>
+                    <input type="hidden" id="userScore" name="userScore"  value=<%= game.userScore %>>
                     <input type="hidden" id="gameuID" name="gameuID"  value=<%= game._id %>>
                     <input type="submit" value="update" />
                 </form></td>
-                <td><form action="/deleteGame" method="POST">
+                <td><form action="/deleteFavorite" method="POST">
                   <input type="hidden" id="gameID" name="gameID"  value=<%= game._id %>>
                   <input type="submit" value="delete" />
               </form></td>
 
-              <td><form action="/addToFavorite" method="POST">
-                    
-                <input type="hidden" id="gameName" name="gameName"  value=<%= game.gameName %>>
-                <input type="hidden" id="gameDetail" name="gameDetail"  value=<%= game.gameDetail %>>
-                <input type="hidden" id="gameProducer" name="gameProducer"  value=<%= game.gameProducer %>>
-                <input type="hidden" id="company" name="company"  value=<%= game.company %>>
-                <input type="hidden" id="ignScore" name="ignScore"  value=<%= game.ignScore %>>
-                <input type="hidden" id="userID" name="userID"  value=<%= game.userID %>>
-                <input type="hidden" id="userEvaluation" name="userEvaluation"  value="Good Game">
-                <input type="hidden" id="userScore" name="userScore" >
-                <input type="submit" value="Add To Favorite" />
-            </form></td>
+              
             </tr>
             <% }) %>
     </tbody>
