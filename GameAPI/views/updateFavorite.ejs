@@ -31,7 +31,7 @@
 <h1 class="mt-4">Game</h1>
 <p class="lead mb-3">Welcome <%= user.name %></p>
 
-<form action="/updateGameInfo" method="POST" id="myform">
+<form action="/updateFavoriteInfo" method="POST" id="myform">
   
   <fieldset>
     <legend>Legend</legend>
@@ -44,27 +44,35 @@
     </div>
     
     <div class="form-group">
-      <label for="gameName">Game Name</label>
-      <input type="text" class="form-control" id="gameName" name="gameName"   placeholder="Enter name" required value=<%= game.gameName %>>
+      <label for="gameName">Game Name(readonly)</label>
+      <input type="text" readonly=""  class="form-control" id="gameName" name="gameName"   placeholder="Enter name" required value=<%= game.gameName %>>
       
     </div>
     <div class="form-group">
-      <label for="gameDetail">Game Detail</label>
-      <input type="text" class="form-control" id="gameDetail" name="gameDetail" placeholder="enter detail" required value=<%= game.gameDetail %>>
+      <label for="gameDetail">Game Detail(readonly)</label>
+      <input type="text" readonly=""  class="form-control" id="gameDetail" name="gameDetail" placeholder="enter detail" required value=<%= game.gameDetail %>>
     </div>
     <div class="form-group">
-      <label for="gameDetail">Game Producer</label>
-      <input type="text" class="form-control" id="gameProducer" name="gameProducer" placeholder="enter Producer Name" required value=<%= game.gameProducer %>>
+      <label for="gameDetail">Game Producer(readonly)</label>
+      <input type="text" readonly=""  class="form-control" id="gameProducer" name="gameProducer" placeholder="enter Producer Name" required value=<%= game.gameProducer %>>
     </div>
     <div class="form-group">
-      <label for="gameDetail">Company of the game</label>
-      <input type="text" class="form-control" id="company" name="company" placeholder="enter Company Name" required value=<%= game.company %>>
+      <label for="gameDetail">Company of the game(readonly)</label>
+      <input type="text"readonly=""  class="form-control" id="company" name="company" placeholder="enter Company Name" required value=<%= game.company %>>
     </div>
     <div class="form-group">
-      <label for="gameDetail">IGN Score</label>
-      <input type="number" class="form-control" id="ignScore" name="ignScore" placeholder="enter IGN Score" min="1" max="10" required value=<%= game.ignScore %>>
+      <label for="gameDetail">IGN Score(readonly)</label>
+      <input type="number"readonly=""  class="form-control" id="ignScore" name="ignScore" placeholder="enter IGN Score" min="1" max="10" required value=<%= game.ignScore %>>
     </div>
-    
+
+    <div class="form-group">
+        <label for="gameDetail">Evaluation</label>
+        <input type="text" class="form-control" id="userEvaluation" name="userEvaluation" placeholder="enter Evaluation"  required value=<%= game.userEvaluation %>>
+    </div>
+    <div class="form-group">
+        <label for="gameDetail">User Score</label>
+        <input type="number" class="form-control" id="userScore" name="userScore" placeholder="enter user Score(1-5)" min="1" max="5" required value=<%= game.userScore %>>
+    </div>
     
     
     </fieldset>

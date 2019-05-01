@@ -111,7 +111,7 @@ router.post('/updateGame', ensureAuthenticated, function(req, res) {
   
 });
 
-router.post('/hello', function(req, res) {
+router.post('/updateGameInfo', function(req, res) {
   
   const rid = req.body.gameuID;
   Game.findByIdAndUpdate(rid,
@@ -153,7 +153,7 @@ router.post("/addToFavorite", (req, res) => {
   Favorite.findOne({ gameName: req.body.gameName }).then(game => {
     if (game) {
       console.log("already added");
-      res.redirect('/createGame');
+      res.redirect('/errorPage');
     }else{
       favorite.save()
       
@@ -194,6 +194,55 @@ router.post("/deleteFavorite", (req, res, next) => {
           console.log(err)
       });
       res.redirect('/showFavoriteGame');
+});
+
+router.post('/updateFavorite', ensureAuthenticated, function(req, res) {
+  // Process the data received in req.body
+  const favorite = new Favorite({
+      
+    gameName: req.body.gameName,
+    gameDetail:req.body.gameDetail,
+    gameProducer:req.body.gameProducer,
+    company:req.body.company,
+    ignScore:req.body.ignScore,
+    userID:req.body.userID,
+    userEvaluation:req.body.userEvaluation,
+    userScore:req.body.userScore
+    
+});
+  
+  res.render('updateFavorite', {
+    user: req.user,
+    game: favorite,
+    uid :req.body.gameuID
+    
+  })
+  
+});
+
+router.post('/updateFavoriteInfo', function(req, res) {
+  
+  const rid = req.body.gameuID;
+  Favorite.findByIdAndUpdate(rid,
+    {
+      gameName: req.body.gameName,
+      gameDetail:req.body.gameDetail,
+      gameProducer:req.body.gameProducer,
+      company:req.body.company,
+      ignScore:req.body.ignScore,
+      userID:req.body.userID,
+      userEvaluation:req.body.userEvaluation,
+      userScore:req.body.userScore           
+    },  
+    function(err, response){
+            if (err) {
+res.send(err);
+} else {
+        console.log(response);
+        console.log('Favorite updated!');
+        res.redirect('/showFavoriteGame');
+                        }
+    });
 });
 
 

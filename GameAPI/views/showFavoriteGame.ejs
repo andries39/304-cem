@@ -65,7 +65,7 @@
                 <td><%= game.userEvaluation %></td>
                 <td><%= game.userScore %></td>
                 
-                <td><form action="" method="POST">
+                <td><form action="/updateFavorite" method="POST">
                     
                     <input type="hidden" id="gameName" name="gameName"  value=<%= game.gameName %>>
                     <input type="hidden" id="gameDetail" name="gameDetail"  value=<%= game.gameDetail %>>

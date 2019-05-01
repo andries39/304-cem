@@ -42,9 +42,6 @@
         <th scope="col">gameProducer</th>
         <th scope="col">company</th>
         <th scope="col">ignScore</th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-        <th scope="col"></th>
         
       </tr>
     </thead>
@@ -60,7 +57,7 @@
                 <td><%= game.gameProducer %></td>
                 <td><%= game.company %></td>
                 <td><%= game.ignScore %></td>
-                
+                <td></td>
                 <td><form action="/updateGame" method="POST">
                     
                     <input type="hidden" id="gameName" name="gameName"  value=<%= game.gameName %>>
