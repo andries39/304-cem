@@ -27,13 +27,7 @@
 
 <h1 class="mt-4">Game</h1>
 <p class="lead mb-3">Welcome <%= user.name %></p>
-<form action="/deleteGame" method="post">
-    <div class="input">
-        <label for="gameName">name</label>
-        <input type="text" id="gameName" name="gameName">
-    </div>
-    <button type="submit">DELETE</button>
-</form>
+
 
 <table class="table table-hover">
        
@@ -64,10 +58,15 @@
                     <input type="hidden" id="gameName123" name="gameName123"  value=<%= game.gameName %>>
                     <input type="submit" value="Go to Google" />
                 </form></td>
+                <td><form action="/deleteGame" method="POST">
+                  <input type="hidden" id="gameID" name="gameID"  value=<%= game._id %>>
+                  <input type="submit" value="delete" />
+              </form></td>
             </tr>
             <% }) %>
     </tbody>
 </table> 
+
 
 
 

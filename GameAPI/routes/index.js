@@ -56,9 +56,9 @@ router.post("/createGame", (req, res) => {
 });
 
 router.post("/deleteGame", (req, res, next) => {
-  const rid = req.body.gameName;
+  const rid = req.body.gameID;
   
-  Game.findOne({gameName:rid})
+  Game.findById(rid)
       .exec()
       .then(docs => {
           docs.remove();

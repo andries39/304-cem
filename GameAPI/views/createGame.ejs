@@ -1,4 +1,5 @@
 
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +29,7 @@
 <h1 class="mt-4">Game</h1>
 <p class="lead mb-3">Welcome <%= user.name %> <%= user.email %> </p>
 
-<form action="/createGame" method="POST">
+<form action="/createGame" method="POST" id="myform">
   <fieldset>
     <legend>Legend</legend>
     <div class="form-group row">
@@ -40,30 +41,37 @@
     </div>
     <div class="form-group">
       <label for="gameName">Game Name</label>
-      <input type="text" class="form-control" id="gameName" name="gameName"  placeholder="Enter name">
+      <input type="text" class="form-control" id="gameName" name="gameName"  placeholder="Enter name" required>
       
     </div>
     <div class="form-group">
       <label for="gameDetail">Game Detail</label>
-      <input type="text" class="form-control" id="gameDetail" name="gameDetail" placeholder="enter detail">
+      <input type="text" class="form-control" id="gameDetail" name="gameDetail" placeholder="enter detail" required>
     </div>
     <div class="form-group">
       <label for="gameDetail">Game Producer</label>
-      <input type="text" class="form-control" id="gameProducer" name="gameProducer" placeholder="enter detail">
+      <input type="text" class="form-control" id="gameProducer" name="gameProducer" placeholder="enter Producer Name" required>
     </div>
     <div class="form-group">
       <label for="gameDetail">Company of the game</label>
-      <input type="text" class="form-control" id="company" name="company" placeholder="enter detail">
+      <input type="text" class="form-control" id="company" name="company" placeholder="enter Company Name" required>
     </div>
     <div class="form-group">
       <label for="gameDetail">IGN Score</label>
-      <input type="number" class="form-control" id="ignScore" name="ignScore" placeholder="enter detail" min="1" max="10">
+      <input type="number" class="form-control" id="ignScore" name="ignScore" placeholder="enter IGN Score" min="1" max="10" required>
     </div>
     
     
     
     </fieldset>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" >Submit</button>
   </fieldset>
 </form>
 
+
+<script>
+ $('#myform').submit(function(e){
+    
+   alert("Success to submit!"); 
+});
+</script>

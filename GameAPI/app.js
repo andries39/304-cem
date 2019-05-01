@@ -62,7 +62,9 @@ app.use('/users', require('./routes/users.js'));
 // mogo
 app.get('/showAllGame', ensureAuthenticated, function(req, res) {
   // mongoose operations are asynchronous, so you need to wait 
-  Game.find({}, function(err, data) {
+  const uID = req.user._id;
+  console.log("uID:"+uID);
+  Game.find({userID:uID}, function(err, data) {
       // note that data is an array of objects, not a single object!
       res.render('showAllGame.ejs', {
           user : req.user,
