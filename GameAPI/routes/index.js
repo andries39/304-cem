@@ -28,6 +28,12 @@ router.get('/createGame', ensureAuthenticated, (req, res) =>
   })
 );*/
 
+router.get('/errorPage', ensureAuthenticated, (req, res) =>
+  res.render('errorPage', {
+    user: req.user
+  })
+);
+
 
 
 router.post("/createGame", (req, res) => {
