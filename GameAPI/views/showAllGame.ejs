@@ -28,9 +28,9 @@
     </nav>
 
 
-<h1 class="mt-4">Game</h1>
+<h1 class="mt-4">Show all Games</h1>
 <p class="lead mb-3">Welcome <%= user.name %></p>
-<% include ./partials/messages %>
+
 
 
 <table class="table table-hover">
@@ -82,7 +82,7 @@
                 <input type="hidden" id="company" name="company"  value=<%= game.company %>>
                 <input type="hidden" id="ignScore" name="ignScore"  value=<%= game.ignScore %>>
                 <input type="hidden" id="userID" name="userID"  value=<%= game.userID %>>
-                <input type="hidden" id="userEvaluation" name="userEvaluation"  value="Good Game">
+                <input type="hidden" id="userEvaluation" name="userEvaluation" >
                 <input type="hidden" id="userScore" name="userScore" >
                 <input type="submit" value="Add To Favorite" />
             </form></td>

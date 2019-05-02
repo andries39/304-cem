@@ -28,15 +28,15 @@
     </nav>
 
 
-<h1 class="mt-4">Game</h1>
+<h1 class="mt-4">Update yourr Game Information</h1>
 <p class="lead mb-3">Welcome <%= user.name %></p>
 
 <form action="/updateGameInfo" method="POST" id="myform">
   
   <fieldset>
-    <legend>Legend</legend>
+    <legend>Update</legend>
     <div class="form-group row">
-      <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+      <label for="staticEmail" class="col-sm-2 col-form-label">User ID:</label>
       <div class="col-sm-10">
         <input type="text" readonly="" class="form-control-plaintext" id="userID" name="userID" value=<%= game.userID %>>
         <input type="hidden" id="gameuID" name="gameuID"  value=<%= uid %>>
@@ -61,7 +61,7 @@
       <input type="text" class="form-control" id="company" name="company" placeholder="enter Company Name" required value=<%= game.company %>>
     </div>
     <div class="form-group">
-      <label for="gameDetail">IGN Score</label>
+      <label for="gameDetail">IGN Score(1-10)</label>
       <input type="number" class="form-control" id="ignScore" name="ignScore" placeholder="enter IGN Score" min="1" max="10" required value=<%= game.ignScore %>>
     </div>
     

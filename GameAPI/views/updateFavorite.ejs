@@ -28,7 +28,7 @@
     </nav>
 
 
-<h1 class="mt-4">Game</h1>
+<h1 class="mt-4">Update your favorite game Info</h1>
 <p class="lead mb-3">Welcome <%= user.name %></p>
 
 <form action="/updateFavoriteInfo" method="POST" id="myform">
@@ -70,7 +70,7 @@
         <input type="text" class="form-control" id="userEvaluation" name="userEvaluation" placeholder="enter Evaluation"  required value=<%= game.userEvaluation %>>
     </div>
     <div class="form-group">
-        <label for="gameDetail">User Score</label>
+        <label for="gameDetail">User Score(1-5)</label>
         <input type="number" class="form-control" id="userScore" name="userScore" placeholder="enter user Score(1-5)" min="1" max="5" required value=<%= game.userScore %>>
     </div>
     

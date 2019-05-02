@@ -45,9 +45,7 @@ router.post("/createGame", (req, res) => {
 
   game.save()
   .then(result => {
-      res.status(200).json({
-          docs:[game]
-      });
+      
       
   })
   .catch(err => {
